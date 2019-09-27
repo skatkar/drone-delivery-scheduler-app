@@ -3,9 +3,9 @@
 This is an application to implement drone-carried deliveries to the customer. The algorithm is implemented in such a way to maximize the NPS value. More NPS value determines more customer satisfaction for the order delivery.
 
 ## Technical details
-Programming language: Java (version 1.8.0)
-Testing framework: JUnit (version 4.12)
-Build tool: Apache Maven (version 3.6.2)
+	Programming langauge: Java (version 1.8.0)
+	Testing frameworks: JUnit(version 4.12)
+	Build tool: Apache Maven (version 3.6.2)
     
 ## Assumptions
 1) In addition to the expected output file(which contains information about the order id and drone's departure time to deliver it), there will be one more file for undelivered orders with status explaining why this delivery failed.
