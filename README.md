@@ -29,7 +29,7 @@ a) InputDataReader - This is an interface which declares one method. The impleme
 b) FileInputDataReader - A class which implements InputDataReader interface. This class is supposed to read the file which is provided as it's constructor parameters.
 c) Warehouse - A class to represent the warehouse. It has two methods for creating the orders and another method for returning the list of orders.
 d) DroneDeliveryService - This is the class which has methods to schedule drone deliveries.
-e) DroneDeliveryScedulerUtil - This class consists of several utility methods. 
+e) DroneDeliveryScedulerUtil - This class consists of several utility methods.
 f) InputReaderFactory - Factory class which creates one of the implementation of the InputDataReader interface depending upon the file type specified. As of now, it just creates an instance of FileInputDataReader.
     
 ## High-level overview of application flow:
