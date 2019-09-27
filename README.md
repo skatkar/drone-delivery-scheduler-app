@@ -55,6 +55,7 @@ f) InputReaderFactory - Factory class which creates one of the implementation of
     mvn clean package
 5. After the successful build, make sure that two jar files are created in the target folder. Out of them, only drone-scheduler-app-jar-with-dependencies.jar is of importance which contains all the necessary dependencies in it.
 6. Command to execute 
-        Syntax: java -jar <path of a jar file> <input file name>
+	Syntax: java -jar <path of a jar file> <input file name>
    If the current directory is project root directory.
-        java -jar target/drone-scheduler-app-jar-with-dependencies.jar input.txt
+	java -jar target/drone-scheduler-app-jar-with-dependencies.jar input.txt
+Note: The code was tested on Windows platform only and not on any Linux platform.
