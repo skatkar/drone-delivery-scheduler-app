@@ -25,11 +25,17 @@ This is an application to implement drone-carried deliveries to the customer. Th
 The application design adheres to the Single responsibility principle, which makes it more readable and testable. 
 
 Classes:-
+
 a) InputDataReader - This is an interface which declares one method. The implementers can read the data from any location.
+
 b) FileInputDataReader - A class which implements InputDataReader interface. This class is supposed to read the file which is provided as it's constructor parameters.
+
 c) Warehouse - A class to represent the warehouse. It has two methods for creating the orders and another method for returning the list of orders.
+
 d) DroneDeliveryService - This is the class which has methods to schedule drone deliveries.
+
 e) DroneDeliveryScedulerUtil - This class consists of several utility methods.
+
 f) InputReaderFactory - Factory class which creates one of the implementation of the InputDataReader interface depending upon the file type specified. As of now, it just creates an instance of FileInputDataReader.
     
 ## High-level overview of application flow:
@@ -42,8 +48,8 @@ f) InputReaderFactory - Factory class which creates one of the implementation of
 4. For each record, it is checked whether the estimated time of delivery is within the given range or not. If it is not then it is placed in a separate file having a name as "<Date-Time>_undelivered.txt"
 5. If the code execution starts before the delivery start time, then the entire code stops saying code can not be executed at this time.
 6. So there are two output files:
-    a) <Date-Time>_delivered.txt
-    b) <Date-Time>_undelivered.txt
+    a) [Date-Time]_delivered.txt
+    b) [Date-Time]_undelivered.txt
 7. These output files will be created in the output directory at the current working directory. Even if the directory does not exist earlier, it will be created by the code.
 8. DroneDeliveryService instance which actually starts the execution is made singleton. If the date changes then the same earlier created object will be used but its dependencies are modified to match with the new date.
 
