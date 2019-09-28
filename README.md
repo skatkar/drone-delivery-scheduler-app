@@ -53,6 +53,17 @@ f) InputReaderFactory - Factory class which creates one of the implementation of
 7. These output files will be created in the output directory at the current working directory. Even if the directory does not exist earlier, it will be created by the code.
 8. DroneDeliveryService instance which actually starts the execution is made singleton. If the date changes then the same earlier created object will be used but its dependencies are modified to match with the new date.
 
+## Motive behind the application design:
+The architecture is designed in such a way assuming there will be a code which initiates the drone delivery service. Right now, there is a main method which starts the execution. The code which starts the application at a specific time, let's say at the delivery start time(e.g., 6:00 AM) and runs for a long time probably for several days. Considering the fact that as the day changes, there can be different delivery start time and end time. This situation can probably occur on weekends when order delivery time can be just for a half-day. To comply with this fact, as the date changes the service instance will be refreshed instead of creating the entirely a new object. By refreshing a service, object means creating the new object of type FileInputDataReader and updating the current DateTime property of the service. So even if the date changes, properties of the existing service instance are changed.
+
+The downside of this application is if data needs to be processed using a different file rather than the previous file, will not be considered. New input needs to be added to the existing file.
+
+
+## Design patterns used
+- Singleton - DroneDeliveryService and Warehouse instances are created using Singleton pattern.
+
+- Factory - Input can be from several sources like file, messaging queue etc. To support this feature, factory pattern is used.
+
 ## How to execute the code
 1. Clone the repository.
 2. Make sure that JDK 1.8 and Maven 3.6 are installed and environment variables are set correctly.
@@ -65,4 +76,4 @@ f) InputReaderFactory - Factory class which creates one of the implementation of
 	java -jar <path of a jar file> <input file name>
 ### Example:
 	java -jar target/drone-scheduler-app-jar-with-dependencies.jar input.txt
-Note: The code was tested on Windows platform only and not on any Linux platform.
+

@@ -38,6 +38,7 @@ public class DroneScheduler {
 					try {
 						//System.out.println(key + value);
 						writeToFile(key,value);
+						System.out.println("Output files are available at output directory");
 					} catch (Exception e) {
 						System.out.println("Exception while writing " + key + " data to the file");
 						e.printStackTrace();
@@ -50,7 +51,6 @@ public class DroneScheduler {
 			e.printStackTrace();
 		}
 		
-		System.out.println("Output files are available at output directory");
 	}
 	
 	/*
