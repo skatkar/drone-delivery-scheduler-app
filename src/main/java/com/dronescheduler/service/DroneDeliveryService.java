@@ -131,9 +131,9 @@ public class DroneDeliveryService {
 			try {
 
 				
-				if(order.getOrderedAt().isAfter(deliveryEndsAt)){
+				if(order.getOrderedAt().equals(deliveryEndsAt) || order.getOrderedAt().isAfter(deliveryEndsAt)){
 					//System.out.println("**"+order.getOrder_id() + " " + order.getOrderedAt() + " Order placed after delivery closing time");
-					throw new InvalidDeliveryOrderException("Order placed after delivery closing time");
+					throw new InvalidDeliveryOrderException("Order placed at/after delivery closing time");
 				}
 				
 				LocalDateTime estimatedDeliveryAt = getEstimatedTimeOfDelivery(order);
